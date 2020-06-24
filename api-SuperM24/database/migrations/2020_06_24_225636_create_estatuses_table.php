@@ -14,7 +14,8 @@ class CreateEstatusesTable extends Migration
     public function up()
     {
         Schema::create('estatuses', function (Blueprint $table) {
-            $table->id();
+            $table->Increments('id_estatus');
+            $table->String('Descripcion',120);
             $table->timestamps();
         });
     }
