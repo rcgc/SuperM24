@@ -37,6 +37,11 @@ class UsuariosController extends Controller
      */
     public function store(Request $request)
     {
+
+        $usuario = Usuarios::create($request->all());
+         //  return $usuario;
+        return response()->json($usuario, 201);
+
         //
     }
 
@@ -73,9 +78,16 @@ class UsuariosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id_usuario)
     {
-        //
+        $id_usuario = intval($id_usuario);
+        $usuarios = Usuarios::find($id_usuario);
+        $usuarios->Nombre =  $request->get('Nombre');
+        $usuarios->Password = $request->get('Password');
+        $usuarios->Alias = $request->get('Alias');
+        $usuarios->Telefono = $request->get('Telefono');
+        $usuarios->save();
+        return $usuarios;
     }
 
     /**
