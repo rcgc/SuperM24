@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Usuarios;
 use Illuminate\Http\Request;
 
 class UsuariosController extends Controller
@@ -13,6 +14,8 @@ class UsuariosController extends Controller
      */
     public function index()
     {
+        $usuarios = Usuarios::all();
+        return $usuarios;
         //
     }
 
@@ -43,8 +46,12 @@ class UsuariosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id_usuario)
     {
+        $id_usuario = intval($id_usuario);
+        $usuarios = Usuarios::find($id_usuario);;
+        return $usuarios;
+
         //
     }
 
@@ -77,8 +84,9 @@ class UsuariosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id_usuario)
     {
+        Usuarios::destroy($id_usuario);
         //
     }
 }

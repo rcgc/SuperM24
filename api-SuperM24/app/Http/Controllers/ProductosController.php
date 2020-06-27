@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Productos;
 use Illuminate\Http\Request;
 
 class ProductosController extends Controller
@@ -13,6 +14,8 @@ class ProductosController extends Controller
      */
     public function index()
     {
+        $productos = Productos::all();
+        return $productos;
         //
     }
 
