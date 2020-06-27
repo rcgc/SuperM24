@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Productos;
+use App\Usuarios;
 use Illuminate\Http\Request;
 
 class ProductosController extends Controller
@@ -37,7 +38,9 @@ class ProductosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $usuario = Usuarios::create($request->all());
+        return $usuario;
+
     }
 
     /**
