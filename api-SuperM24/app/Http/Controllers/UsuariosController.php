@@ -82,7 +82,7 @@ class UsuariosController extends Controller
     {
         $id_usuario = intval($id_usuario);
         $usuarios = Usuarios::find($id_usuario);
-        $usuarios->Nombre =  $request->get('Nombre');
+        $usuarios->Nombre = $request->get('Nombre');
         $usuarios->Password = $request->get('Password');
         $usuarios->Alias = $request->get('Alias');
         $usuarios->Telefono = $request->get('Telefono');
